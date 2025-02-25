@@ -3,9 +3,10 @@ import { Menu, X } from 'lucide-react';
 import cart from '../images/cart-plus-solid.svg';
 import { MyContext } from '../MyContext';
 import trash from '../images/trash-solid.svg'
+import starRed from '../images/starRed.svg'
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const { cartCount,cartAmount,clearCart } = useContext(MyContext);
+  const { cartCount,cartAmount,clearCart,like } = useContext(MyContext);
   const [bag, setBag] = useState(false);
   
 
@@ -31,6 +32,10 @@ function Header() {
           {/* Cart Icon */}
           <img src={cart} alt="cart" className='w-6 h-6 cursor-pointer' onClick={handleBag} />
           <span className="bg-black text-white rounded-full px-2 py-1 text-sm">{cartCount}</span>
+         {
+            like && 
+            <img src={starRed} alt="starRed" width={20} />
+         }
 
           {/* Cart Popup */}
           {bag && (
