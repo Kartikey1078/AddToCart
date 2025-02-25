@@ -5,8 +5,9 @@ import { MyContext } from '../MyContext';
 import trash from '../images/trash-solid.svg'
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const { cartAmount,clearCart } = useContext(MyContext);
+  const { cartCount,cartAmount,clearCart } = useContext(MyContext);
   const [bag, setBag] = useState(false);
+  
 
   function handleBag() {
     setBag(!bag);
@@ -29,6 +30,7 @@ function Header() {
         <div className='flex items-center space-x-4 relative'>
           {/* Cart Icon */}
           <img src={cart} alt="cart" className='w-6 h-6 cursor-pointer' onClick={handleBag} />
+          <span className="bg-black text-white rounded-full px-2 py-1 text-sm">{cartCount}</span>
 
           {/* Cart Popup */}
           {bag && (

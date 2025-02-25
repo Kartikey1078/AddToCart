@@ -8,11 +8,12 @@ import img5 from '../images/image-product-4-thumbnail.jpg';
 import { MyContext } from "../MyContext";
 
 function ProductCart() {
-  const { setCartAmount } = useContext(MyContext);
+  const { setCartCount,setCartAmount } = useContext(MyContext);
   const [count, setCount] = useState(0);
 
   function handleAmount() {
     setCartAmount(count * 125);
+    setCartCount(count)
     setCount(0);
   }
 
